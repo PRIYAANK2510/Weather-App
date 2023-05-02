@@ -21,6 +21,7 @@ const SearchBox = ({ searchText, setSearchText, handleSearch }) => {
         type='text'
         className='flex-grow h-[50px] p-4 pr-10 rounded-xl text-lg focus:border-blue-500 focus:border-[2.5px] focus:outline-none dark:bg-slate-500 dark:text-gray-100 dark:focus:border-blue-900'
         value={searchText}
+        placeholder='Enter any City or Country'
         onChange={(e) => setSearchText(e.target.value)}
       />
       <button
