@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ErrorSection from '../components/ErrorSection';
 import Header from '../components/Header';
 import LoadingSection from '../components/LoadingSection';
@@ -9,6 +9,8 @@ const Home = ({ darkMode, handleDarkMode }) => {
   const [searchText, setSearchText] = useState('');
   const [word, setWord] = useState(null);
   const [data, setData] = useState({});
+  const dateData = useRef('');
+
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isFahrenheit, setIsFahrenheit] = useState(
@@ -47,6 +49,7 @@ const Home = ({ darkMode, handleDarkMode }) => {
             "Sorry pal, we couldn't find the location you were looking for."
           );
         const val = await response.json();
+        dateData.current = val.days[0].datetime;
         setData(val);
         setFetchError(null);
         setIsLoading(false);
@@ -80,6 +83,9 @@ const Home = ({ darkMode, handleDarkMode }) => {
         {!isLoading && !fetchError && Object.keys(data).length !== 0 && (
           <OutputSection
             data={data}
+            dateData={
+              data.days.filter((day) => day.datetime === dateData.current)[0]
+            }
             isFahrenheit={isFahrenheit}
           />
         )}
