@@ -26,9 +26,9 @@ const Header = ({
           className='text-[1.5rem] mr-4'
         >
           {isFahrenheit ? (
-            <RiFahrenheitFill className='text-blue-700' />
-          ) : (
             <RiCelsiusFill className='text-blue-700' />
+          ) : (
+            <RiFahrenheitFill className='text-blue-700' />
           )}
         </button>
         <button

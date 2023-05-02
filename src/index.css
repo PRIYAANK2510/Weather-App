@@ -11,7 +11,7 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  height: 2px;
+  height: 3px;
 }
 
 *::-webkit-scrollbar-track {
@@ -29,6 +29,6 @@
 .w-9\/10 {
   width: 90%;
 }
-.myShadow {
-  box-shadow: 2px 0px 4px hsl(0deg 0% 0% / 0.1);
+.detailBoxShadow {
+  box-shadow: 3px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);
 }

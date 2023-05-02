@@ -2,7 +2,7 @@ import HourTemp from './HourTemp';
 
 const HourlyTempSection = ({ hourlyTemp }) => {
   return (
-    <div className='flex gap-3 overflow-x-auto myShadow'>
+    <div className='flex gap-4 overflow-x-auto'>
       {hourlyTemp.map((obj, index) => (
         <HourTemp
           key={index}
