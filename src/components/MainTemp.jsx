@@ -11,7 +11,7 @@ const MainTemp = ({ currentConditions, isFahrenheit }) => {
           <span className='text-xl'>&deg;C</span>
         )}
       </div>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center gap-3'>
         <img
           className='w-20 h-20'
           src={`/icons/${currentConditions.icon}.svg`}

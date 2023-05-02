@@ -37,9 +37,9 @@ const Home = ({ darkMode, handleDarkMode }) => {
 
       try {
         const response = await fetch(
-          `${API_URL}${word}/today?unitGroup=${
+          `${API_URL}${word}?unitGroup=${
             isFahrenheit ? 'us' : 'metric'
-          }&key=${API_KEY}`
+          }&include=hours%2Cdays%2Ccurrent&key=${API_KEY}&contentType=json`
         );
         if (response.status === 429) throw Error('Search Limit Exceed');
         if (!response.ok)
