@@ -14,7 +14,7 @@ const MainTemp = ({ currentConditions, isFahrenheit }) => {
       <div className='flex flex-col items-center'>
         <img
           className='w-20 h-20'
-          src={`../../public/icons/${currentConditions.icon}.svg`}
+          src={`/icons/${currentConditions.icon}.svg`}
           alt='weather'
         />
         <span className='opacity-40 text-sm capitalize'>

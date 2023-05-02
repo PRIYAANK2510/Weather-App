@@ -4,7 +4,7 @@ const HourTemp = ({ temp, icon, time }) => {
       <div className='flex flex-col justify-between items-center p-2 h-full'>
         <img
           className='w-8 h-8'
-          src={`../../public/icons/${icon}.svg`}
+          src={`/icons/${icon}.svg`}
           alt='hourweather'
         />
         <h2>{`${temp}\u00B0`}</h2>
