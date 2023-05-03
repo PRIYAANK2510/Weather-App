@@ -2,7 +2,7 @@ const DateTemp = ({ temp, icon, date, nowDate, setNowDate }) => {
   const formattedDate = formatDate(date);
   return (
     <div
-      className={`dark:bg-gray-800 bg-gray-400 w-[100px] h-[130px] aspect-square rounded-md ${
+      className={`dark:bg-gray-800 bg-gray-400 w-[100px] h-[130px] aspect-square rounded-md cursor-pointer ${
         nowDate.current === date ? 'opacity-100' : 'opacity-60'
       }`}
       onClick={() => {
