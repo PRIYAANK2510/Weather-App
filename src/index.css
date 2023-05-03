@@ -28,7 +28,7 @@
 @tailwind utilities;
 
 .w-9\/10 {
-  width: 90%;
+  width: 92%;
 }
 .detailBoxShadow {
   box-shadow: 3px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);

@@ -4,7 +4,7 @@ const SearchBox = ({ searchText, setSearchText, handleSearch }) => {
   const inputRef = useRef();
   return (
     <form
-      className='flex items-center relative w-9/10 lg:w-2/4 mb-6'
+      className='flex items-center relative w-9/10 lg:w-2/3 mb-6'
       onSubmit={handleSearch}
     >
       <label

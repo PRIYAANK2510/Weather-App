@@ -1,6 +1,6 @@
 const MainTemp = ({ currentConditions, isFahrenheit }) => {
   return (
-    <div className='font-semibold flex items-center justify-between'>
+    <div className='font-semibold flex items-center justify-between mb-2'>
       <div>
         <h1 className='float-left text-7xl'>
           {Math.round(currentConditions.temp * 10) / 10}

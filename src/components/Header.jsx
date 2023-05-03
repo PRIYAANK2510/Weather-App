@@ -20,10 +20,10 @@ const Header = ({
       >
         Weather App
       </h1>
-      <div>
+      <div className='flex items-center gap-4 justify-between'>
         <button
           onClick={handleTempType}
-          className='text-[1.5rem] mr-4'
+          className='text-[1.5rem]'
         >
           {isFahrenheit ? (
             <RiCelsiusFill className='text-blue-700' />

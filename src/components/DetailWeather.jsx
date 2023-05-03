@@ -46,6 +46,16 @@ const DetailWeather = ({ currentConditions, isFahrenheit }) => {
         data={`${dir}`}
         imgname='winddirection'
       />
+      <DetailBox
+        title='Rain'
+        data={`${currentConditions.precip}${isFahrenheit ? 'inch' : 'mm'}`}
+        imgname='precipitation'
+      />
+      <DetailBox
+        title='Rain Probability'
+        data={`${currentConditions.precipprob}%`}
+        imgname='precipprobability'
+      />
     </div>
   );
 };

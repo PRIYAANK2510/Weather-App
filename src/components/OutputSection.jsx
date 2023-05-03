@@ -11,7 +11,7 @@ const OutputSection = ({
   setNowDate,
 }) => {
   return (
-    <div className='mt-3 w-9/10 lg:w-2/4 flex flex-col gap-4 dark:border-gray-800 dark:text-gray-200 '>
+    <div className='mt-3 w-9/10 lg:w-2/3 flex flex-col gap-4 dark:border-gray-800 dark:text-gray-200 '>
       <MainTemp
         currentConditions={dateData}
         isFahrenheit={isFahrenheit}
