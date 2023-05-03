@@ -9,7 +9,7 @@ const Home = ({ darkMode, handleDarkMode }) => {
   const [searchText, setSearchText] = useState('');
   const [word, setWord] = useState(null);
   const [data, setData] = useState({});
-  const dateData = useRef('');
+  const [nowDate, setNowDate] = useState({ current: '' });
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +49,7 @@ const Home = ({ darkMode, handleDarkMode }) => {
             "Sorry pal, we couldn't find the location you were looking for."
           );
         const val = await response.json();
-        dateData.current = val.days[0].datetime;
+        setNowDate({ current: val.days[0].datetime });
         setData(val);
         setFetchError(null);
         setIsLoading(false);
@@ -84,8 +84,10 @@ const Home = ({ darkMode, handleDarkMode }) => {
           <OutputSection
             data={data}
             dateData={
-              data.days.filter((day) => day.datetime === dateData.current)[0]
+              data.days.filter((day) => day.datetime === nowDate.current)[0]
             }
+            nowDate={nowDate}
+            setNowDate={setNowDate}
             isFahrenheit={isFahrenheit}
           />
         )}
