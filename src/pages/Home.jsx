@@ -51,8 +51,6 @@ const Home = ({ darkMode, handleDarkMode }) => {
         const val = await response.json();
         setNowDate({ current: val.days[0].datetime });
         setData(val);
-        console.log(val);
-
         setFetchError(null);
         setIsLoading(false);
       } catch (err) {
