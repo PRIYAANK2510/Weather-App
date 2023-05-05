@@ -9,22 +9,32 @@ const Home = ({ darkMode, handleDarkMode }) => {
   const [searchText, setSearchText] = useState('');
   const [word, setWord] = useState(null);
   const [data, setData] = useState({});
+
+  //Current Date
   const [nowDate, setNowDate] = useState({ current: '' });
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  //Is Fahrenheit or Not
   const [isFahrenheit, setIsFahrenheit] = useState(
     localStorage.getItem('isFahrenheit')
       ? JSON.parse(localStorage.getItem('isFahrenheit'))
       : false
   );
+
+  //LocalEnviorment Data Imports
   const API_KEY = import.meta.env.VITE_API_KEY;
   const API_URL = import.meta.env.VITE_API_URL;
+
+  //Handle Each Search Location
   const handleSearch = (e) => {
     e.preventDefault();
     setWord(searchText);
     setSearchText('');
   };
+
+  //Handle Weather App Click reach home page
   const handleHome = () => {
     setSearchText('');
     setWord(null);
@@ -33,6 +43,39 @@ const Home = ({ darkMode, handleDarkMode }) => {
     setIsLoading(false);
   };
 
+  //Current Location Name
+  const geolocationAPI = navigator.geolocation;
+  const LOC_API_URL = 'https://us1.locationiq.com/v1/reverse?';
+  const LOC_API_KEY = 'pk.c83e52e6732d403110d9ed49ebd07a68';
+  useEffect(() => {
+    const geoLocationName = async (lat, lon) => {
+      try {
+        const res = await fetch(
+          `${LOC_API_URL}key=${LOC_API_KEY}&lat=${lat}&lon=${lon}&format=json`
+        );
+        if (!res.ok) throw Error('Cant find the current location');
+        const fdata = await res.json();
+        setWord(fdata.display_name);
+      } catch (err) {
+        setFetchError(err.message);
+      }
+    };
+    if (!geolocationAPI) {
+      console.log('No GeoLocation APi');
+    } else {
+      geolocationAPI.getCurrentPosition(
+        (position) => {
+          const { coords } = position;
+          geoLocationName(coords.latitude, coords.longitude);
+        },
+        (error) => {
+          setWord('Delhi');
+        }
+      );
+    }
+  }, []);
+
+  //Fetting Weather Data
   useEffect(() => {
     const fetchData = async (word) => {
       setIsLoading(true);
@@ -60,6 +103,7 @@ const Home = ({ darkMode, handleDarkMode }) => {
     };
     if (word !== null) fetchData(word);
   }, [word, isFahrenheit]);
+
   return (
     <>
       <Header

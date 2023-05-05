@@ -18,8 +18,7 @@ const OutputSection = ({
       />
       <div className='mb-4'>
         <h6 className='italic text-lg opacity-70'>
-          <span className='capitalize'>{data.address}</span>
-          {`  (${data.resolvedAddress})`}
+          <span className='capitalize'>{data.resolvedAddress}</span>
         </h6>
       </div>
       <h1 className='text-lg'>Weather Details</h1>
