@@ -19,17 +19,15 @@ const useFetch = (word, setWord, isFahrenheit) => {
     const geoLocationName = async (lat, lon) => {
       setIsLoading(true);
       try {
-        const res = await fetch(`${LOC_API_URL}key=${LOC_API_KEY}&lat=${lat}&lon=${lon}&format=json`);
+        const res = await fetch(
+          `${LOC_API_URL}key=${LOC_API_KEY}&lat=${lat}&lon=${lon}&format=json`
+        );
         if (res.status === 429) throw Error('Search Limit Exceed');
         if (!res.ok) throw Error('Cant find the current location');
         const fdata = await res.json();
         setWord(fdata.display_name);
-        setIsLoading(false);
       } catch (err) {
         setFetchError(err.message);
-        setIsLoading(false);
-      } finally {
-        setIsLoading(false);
       }
     };
     if (!geolocationAPI) {
@@ -58,7 +56,8 @@ const useFetch = (word, setWord, isFahrenheit) => {
           }&include=hours%2Cdays%2Ccurrent&key=${API_KEY}&contentType=json`
         );
         if (response.status === 429) throw Error('Search Limit Exceed');
-        if (!response.ok) throw Error("Sorry pal, we couldn't find the location you were looking for.");
+        if (!response.ok)
+          throw Error("Sorry pal, we couldn't find the location you were looking for.");
         const val = await response.json();
         setNowDate({ current: val.days[0].datetime });
         setData(val);
@@ -72,7 +71,16 @@ const useFetch = (word, setWord, isFahrenheit) => {
     if (word !== null) fetchData(word);
   }, [word, isFahrenheit]);
 
-  return { data, isLoading, fetchError, nowDate, setFetchError, setIsLoading, setNowDate, setData };
+  return {
+    data,
+    isLoading,
+    fetchError,
+    nowDate,
+    setFetchError,
+    setIsLoading,
+    setNowDate,
+    setData,
+  };
 };
 
 export default useFetch;
