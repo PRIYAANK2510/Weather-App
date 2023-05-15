@@ -1,35 +1,35 @@
 @tailwind base;
 :root {
-  --primary: rgba(0, 0, 0, 0.01);
-  --secondary: rgba(0, 0, 0, 0.1);
+	--primary: rgba(0, 0, 0, 0.01);
+	--secondary: rgba(0, 0, 0, 0.1);
 }
 /*Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--secondary) var(--primary);
+	scrollbar-width: thin;
+	scrollbar-color: var(--secondary) var(--primary);
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  height: 1px;
-  width: 0px;
+	height: 1px;
+	width: 0px;
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--primary);
-  border-radius: 5px;
+	background: var(--primary);
+	border-radius: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
+	background-color: var(--secondary);
 }
 
 @tailwind components;
 @tailwind utilities;
 
 .w-9\/10 {
-  width: 92%;
+	width: 92%;
 }
 .detailBoxShadow {
-  box-shadow: 3px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);
+	box-shadow: 3px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);
 }
