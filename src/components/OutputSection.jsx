@@ -22,7 +22,7 @@ const OutputSection = ({ data, dateData, isFahrenheit, nowDate, setNowDate }) =>
 			/>
 			<h1 className='text-lg'>Hourly Weather</h1>
 			<HourlyTempSection hourlyTemp={dateData.hours} />
-			<h1 className='text-lg'>Daily Weather</h1>
+			<h1 className='text-lg'>Monthly Weather</h1>
 			<DateTempSection
 				dateTemp={data.days}
 				nowDate={nowDate}
